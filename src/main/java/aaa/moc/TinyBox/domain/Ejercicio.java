@@ -26,10 +26,10 @@ public class Ejercicio implements Serializable {
     @Column(unique = true, nullable = false)
     private Long id;
 
-    @NotEmpty
+    @NotEmpty(message = "eres tonto?")
     private String nombre;
 
-    @NotEmpty
+    @NotEmpty(message = "tontissssimo")
     private String foto;
 
     private String explicacion;

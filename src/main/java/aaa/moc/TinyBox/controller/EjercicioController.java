@@ -4,12 +4,12 @@ import aaa.moc.TinyBox.domain.Ejercicio;
 import aaa.moc.TinyBox.service.EjercicioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
-@Controller
+@RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/ejercicio")
 public class EjercicioController {
@@ -22,7 +22,7 @@ public class EjercicioController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Ejercicio> create(@RequestBody Ejercicio ejercicio) {
+    public ResponseEntity<Ejercicio> create(@Valid @RequestBody Ejercicio ejercicio) {
         return ResponseEntity.ok(this.ejercicioService.save(ejercicio));
     }
 
