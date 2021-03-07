@@ -9,6 +9,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -27,10 +28,16 @@ public class Ejercicio implements Serializable {
     private Long id;
 
     @NotEmpty(message = "El campo nombre no puede estar vacío.")
+    @Size(max = 50, message = "El campo nombre no puede tener más de 50 caracteres")
+    @Column(length = 50)
     private String nombre;
 
     @NotEmpty(message = "El campo foto no puede estar vacío.")
+    @Size(max = 50, message = "El campo foto no puede tener más de 50 caracteres")
+    @Column(length = 50)
     private String foto;
 
+    @Size(max = 150, message = "El campo explicación no puede tener más de 50 caracteres")
+    @Column(length = 150)
     private String explicacion;
 }

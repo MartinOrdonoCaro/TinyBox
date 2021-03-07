@@ -1,5 +1,6 @@
 package aaa.moc.TinyBox.controller;
 
+import aaa.moc.TinyBox.exception.EjercicioNotFoundException;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpHeaders;
@@ -17,6 +18,11 @@ public class ControllerAdviser extends ResponseEntityExceptionHandler {
     @ExceptionHandler({ Exception.class })
     public ResponseEntity<ExceptionResponse> handleRestException(Exception ex, WebRequest request) {
         return buildExceptionResponse(HttpStatus.INTERNAL_SERVER_ERROR, ex);
+    }
+
+    @ExceptionHandler({EjercicioNotFoundException.class })
+    public ResponseEntity<ExceptionResponse> handleEjercicioNotFoundException(Exception ex, WebRequest request) {
+        return buildExceptionResponse(HttpStatus.BAD_REQUEST, ex);
     }
 
     @Override
