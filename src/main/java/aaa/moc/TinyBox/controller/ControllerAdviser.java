@@ -22,7 +22,7 @@ public class ControllerAdviser extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler({EjercicioNotFoundException.class })
     public ResponseEntity<ExceptionResponse> handleEjercicioNotFoundException(Exception ex, WebRequest request) {
-        return buildExceptionResponse(HttpStatus.BAD_REQUEST, ex);
+        return buildExceptionResponse(HttpStatus.NOT_FOUND, ex);
     }
 
     @Override
