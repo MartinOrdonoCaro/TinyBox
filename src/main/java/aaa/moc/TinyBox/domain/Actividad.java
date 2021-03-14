@@ -35,12 +35,12 @@ public class Actividad implements Serializable {
     private Integer repeticiones;
 
     @NotNull(message = "El campo descanso no puede estar vacío.")
-    @Range(max= 300, message = "El campo descanso no puede tener más de 300 segundos") //No creo que vaya a ver un descanso de mas de 5 min
+    @Range(max= 300, message = "El campo descanso no puede tener más de 300 segundos") // TODO No creo que vaya a ver un descanso de mas de 5 min
     @Column(length = 300)
     private Integer descanso;
 
     @NotNull(message = "El campo carga no puede estar vacío.")
-    @Range(max=150, message = "El campo carga no puede tener más de 150 kilogramos") //Creo que adolfo no tiene tanto peso en el TinyBox
+    @Range(max=150, message = "El campo carga no puede tener más de 150 kilogramos") // TODO Creo que adolfo no tiene tanto peso en el TinyBox
     @Column(length = 150)
     private Integer carga;
 

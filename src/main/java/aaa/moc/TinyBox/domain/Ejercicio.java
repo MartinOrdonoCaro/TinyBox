@@ -19,7 +19,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @ToString
 @Table(name = "ejercicio")
-public class Ejercicio extends Actividad implements Serializable {
+public class Ejercicio implements Serializable {
     private static final long serialVersionUID = 9187028543191880167L;
 
     @Id
