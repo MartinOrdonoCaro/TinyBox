@@ -20,7 +20,7 @@ public class EjercicioController {
         return ResponseEntity.ok(this.ejercicioService.findAll());
     }
 
-    @GetMapping("/findOne/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Ejercicio> findOne(@PathVariable Long id) {
         return ResponseEntity.ok(this.ejercicioService.findOne(id));
     }
@@ -30,11 +30,9 @@ public class EjercicioController {
         return ResponseEntity.ok(this.ejercicioService.create(ejercicio));
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         this.ejercicioService.delete(id);
         return ResponseEntity.noContent().build();
     }
-
-
 }
