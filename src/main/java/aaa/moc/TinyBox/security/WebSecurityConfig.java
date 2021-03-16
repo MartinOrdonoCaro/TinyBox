@@ -1,6 +1,5 @@
 package aaa.moc.TinyBox.security;
 
-import aaa.moc.TinyBox.enumerate.Rol;
 import aaa.moc.TinyBox.service.TinyBoxUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -25,7 +24,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf().disable()
             .authorizeRequests()
                 .antMatchers("/usuario/**").permitAll()
-                .anyRequest().hasRole("USUARIO").and()
+                //.anyRequest().hasRole("USUARIO").and()
+                .anyRequest().permitAll().and()
             .formLogin()
                 .loginProcessingUrl("/perform_login")
                 .permitAll()
