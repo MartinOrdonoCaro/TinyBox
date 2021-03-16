@@ -5,6 +5,7 @@ import aaa.moc.TinyBox.enumerate.Rol;
 import aaa.moc.TinyBox.exception.UsuarioNotFoundException;
 import aaa.moc.TinyBox.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +19,9 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     /**
      * Crea un nuevo usuario.
      * @param usuario Usuario
@@ -25,6 +29,7 @@ public class UsuarioService {
      */
     public Usuario create(Usuario usuario) {
         usuario.setRol(Rol.ROLE_USUARIO);
+        usuario.setContrasena(passwordEncoder.encode(usuario.getPassword()));
         return this.usuarioRepository.save(usuario);
     }
 
