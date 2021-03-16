@@ -15,7 +15,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Usuario extends Actor implements Serializable {
-    private static final long serialVersionUID = 9187028543191880167L;
+    private static final long serialVersionUID = 2749092248295024083L;
 
     @NotNull(message = "El numero de entrenos no puede estar vacío.")
     @Min(value = 0, message = "El número de entrenos no puede ser negativo")

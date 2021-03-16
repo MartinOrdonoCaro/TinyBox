@@ -27,13 +27,13 @@ public class Actor implements UserDetails {
     private Long id;
 
     @NotEmpty(message = "El campo nombre no puede estar vacío.")
-    @Size(max = 50, message = "El campo nombre no puede tener más de 50 caracteres")
-    @Column(length = 50)
+    @Size(max = 100, message = "El campo nombre no puede tener más de 100 caracteres")
+    @Column(length = 100)
     private String nombre;
 
     @NotEmpty(message = "El campo contraseña no puede estar vacío.")
-    @Size(max = 50, message = "El campo contraseña no puede tener más de 50 caracteres")
-    @Column(length = 50)
+    @Size(max = 100, message = "El campo contraseña no puede tener más de 100 caracteres")
+    @Column(length = 100)
     private String contrasena;
 
     @NotEmpty(message = "El campo email no puede estar vacío.")

@@ -20,7 +20,7 @@ import java.io.Serializable;
 @ToString
 @Table(name = "ejercicio")
 public class Ejercicio implements Serializable {
-    private static final long serialVersionUID = 9187028543191880167L;
+    private static final long serialVersionUID = -7362086027218401822L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -16,5 +16,5 @@ import java.io.Serializable;
 @AllArgsConstructor
 //@NoArgsConstructor
 public class Entrenador extends Actor implements Serializable {
-    private static final long serialVersionUID = 9187028543191880167L;
+    private static final long serialVersionUID = -5117985404128879828L;
 }
