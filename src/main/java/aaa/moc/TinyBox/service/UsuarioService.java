@@ -68,4 +68,19 @@ public class UsuarioService {
                     new String[]{id.toString()});
         }
     }
+
+    /**
+     * Busca un usuario por nombre.
+     * @param nombre del Actor
+     * @return usuario correspondiente al nombre
+     */
+    public Usuario findOneByNombre(String nombre) {
+        Optional<Usuario> usuarioOptional = this.usuarioRepository.findByNombre(nombre);
+        if(usuarioOptional.isPresent()) {
+            return usuarioOptional.get();
+        } else {
+            throw new UsuarioNotFoundException("No existe usuario con nombre {0}",
+                    new String[]{nombre});
+        }
+    }
 }

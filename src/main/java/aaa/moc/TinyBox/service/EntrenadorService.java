@@ -1,9 +1,11 @@
 package aaa.moc.TinyBox.service;
 
 import aaa.moc.TinyBox.domain.Entrenador;
+import aaa.moc.TinyBox.enumerate.Rol;
 import aaa.moc.TinyBox.exception.EntrenadorNotFoundException;
 import aaa.moc.TinyBox.repository.EntrenadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,12 +19,17 @@ public class EntrenadorService {
     @Autowired
     private EntrenadorRepository entrenadorRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     /**
      * Crea un nuevo entrenador.
      * @param entrenador Entrenador
      * @return instancia del entrenador creado
      */
     public Entrenador create(Entrenador entrenador) {
+        entrenador.setRol(Rol.ROLE_ENTRENADOR);
+        entrenador.setContrasena(passwordEncoder.encode(entrenador.getPassword()));
         return this.entrenadorRepository.save(entrenador);
     }
 

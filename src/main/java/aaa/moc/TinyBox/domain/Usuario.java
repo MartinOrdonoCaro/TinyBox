@@ -22,6 +22,6 @@ public class Usuario extends Actor implements Serializable {
     @Max(value = 7, message = "El número de entrenos no puede ser superior a 7")
     private Integer numeroEntrenos;
 
-    @Size(max = 500, message = "El campo lesiones no puede tener más de 500 caracteres")
+    @Size(max = 1000, message = "El campo lesiones no puede tener más de 1000 caracteres")
     private String lesiones;
 }

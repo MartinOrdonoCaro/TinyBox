@@ -7,6 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
@@ -35,22 +36,34 @@ public class Actividad implements Serializable {
     private Integer repeticiones;
 
     @NotNull(message = "El campo descanso no puede estar vacío.")
-    @Range(max= 300, message = "El campo descanso no puede tener más de 300 segundos") // TODO No creo que vaya a ver un descanso de mas de 5 min
+    @Range(max= 300, message = "El campo descanso no puede tener más de 300 segundos")
     @Column(length = 300)
     private Integer descanso;
 
     @NotNull(message = "El campo carga no puede estar vacío.")
-    @Range(max=150, message = "El campo carga no puede tener más de 150 kilogramos") // TODO Creo que adolfo no tiene tanto peso en el TinyBox
+    @Range(max=150, message = "El campo carga no puede tener más de 150 kilogramos")
     @Column(length = 150)
     private Integer carga;
 
-    @Size(max = 50, message = "El campo observaciones no puede tener más de 50 caracteres")
-    @Column(length = 50)
+    @Size(max = 500, message = "El campo observaciones no puede tener más de 50 caracteres")
+    @Column(length = 500)
     private String observaciones;
 
     @NotEmpty(message = "El campo tipo no puede estar vacío.")
     @Size(max = 50, message = "El campo foto no puede tener más de 50 caracteres")
-    @Column(length = 50)
+    @Column(length = 50) // todo enum tipo de entrenamiento calentamiento/principal/final
     private String tipo;
+
+    /**
+     * Relationships
+     */
+    @ManyToMany(mappedBy = "actividadesCalentamiento")
+    List<Entrenamiento> entrenosCalentamiento;
+
+    @ManyToMany(mappedBy = "actividadesCalentamiento")
+    List<Entrenamiento> entrenosPrincipal;
+
+    @ManyToMany(mappedBy = "actividadesCalentamiento")
+    List<Entrenamiento> entrenosFinal;
 
 }

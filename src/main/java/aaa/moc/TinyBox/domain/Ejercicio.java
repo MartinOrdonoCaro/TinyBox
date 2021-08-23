@@ -37,7 +37,7 @@ public class Ejercicio implements Serializable {
     @Column(length = 50)
     private String foto;
 
-    @Size(max = 150, message = "El campo explicación no puede tener más de 50 caracteres")
+    @Size(max = 150, message = "El campo explicación no puede tener más de 150 caracteres")
     @Column(length = 150)
     private String explicacion;
 }
